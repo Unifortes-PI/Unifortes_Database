@@ -14,16 +14,16 @@
    <remarks>Informaçoões gerais dos alunos</remarks>
    <folder id="FOLTAB11" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL2" populated="true" UUID="39b9e2cc-c644-458f-bb47-057872f0773c" autoIncrement="false" autoIncrementSequenceName="Alunos_cpf_aluno_seq" defaultValue="" name="cpf_aluno" nullable="0" physicalName="cpf_aluno" precision="11" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>cpf do aluno</remarks>
+     <remarks>PK armazena o CPF do aluno.</remarks>
     </column>
     <column id="COL3" populated="true" UUID="9df1a5b0-01a4-4d80-a230-baeef19fd33c" autoIncrement="false" autoIncrementSequenceName="Alunos_email_aluno_seq" defaultValue="" name="email_aluno" nullable="0" physicalName="email_aluno" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o e-mail do aluno.</remarks>
     </column>
     <column id="COL4" populated="true" UUID="07f20648-42df-4e42-92c4-405d6a13735c" autoIncrement="false" autoIncrementSequenceName="Alunos_nome_aluno_seq" defaultValue="" name="nome_aluno" nullable="0" physicalName="nome_aluno" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o nome do aluno como no RG.</remarks>
     </column>
     <column id="COL5" populated="true" UUID="b700ee51-34d4-4c96-8cdb-dff5c5995824" autoIncrement="false" autoIncrementSequenceName="Alunos_pontos_total_seq" defaultValue="" name="pontos_total" nullable="1" physicalName="pontos_total" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena a pontuação do aluno.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB13" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -40,13 +40,13 @@
    <remarks>informações gerais dos cursos</remarks>
    <folder id="FOLTAB81" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL9" populated="true" UUID="0044934e-4c08-4bcc-92fe-d24414c78f15" autoIncrement="false" autoIncrementSequenceName="Cursos_curso_id_seq" defaultValue="" name="curso_id" nullable="0" physicalName="curso_id" precision="3" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>PK armazena o ID do curso.</remarks>
     </column>
     <column id="COL10" populated="true" UUID="106d38d1-9835-4c70-9d0f-c0684b83cd26" autoIncrement="false" autoIncrementSequenceName="Cursos_nome_curso_seq" defaultValue="" name="nome_curso" nullable="0" physicalName="nome_curso" precision="256" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Colua armazena o nome do curso.</remarks>
     </column>
     <column id="COL11" populated="true" UUID="024c78e1-9c4c-4c0c-bb5a-fdc1c64a9fd6" autoIncrement="false" autoIncrementSequenceName="Cursos_cpf_aluno_seq" defaultValue="" name="cpf_aluno" nullable="0" physicalName="cpf_aluno" precision="11" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>cpf do aluno</remarks>
+     <remarks>FK armazena o cpf do aluno.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB83" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -63,16 +63,16 @@
    <remarks>informaçções gearias das recompensas</remarks>
    <folder id="FOLTAB141" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL15" populated="true" UUID="bc16bc43-aff3-4245-ac1b-169612b39a78" autoIncrement="false" autoIncrementSequenceName="recompensas_recompensa_id_seq" defaultValue="" name="recompensa_id" nullable="0" physicalName="recompensa_id" precision="3" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>PK armazena o ID da recompensa.</remarks>
     </column>
     <column id="COL16" populated="true" UUID="459f2657-3133-43a2-8567-1e6234048879" autoIncrement="false" autoIncrementSequenceName="recompensas_nome_recompensa_seq" defaultValue="" name="nome_recompensa" nullable="0" physicalName="nome_recompensa" precision="256" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o nome da recompensa.</remarks>
     </column>
     <column id="COL17" populated="true" UUID="897188c5-f2ef-40d6-9f97-0792943d45d7" autoIncrement="false" autoIncrementSequenceName="recompensas_valor_recompensa_seq" defaultValue="" name="valor_recompensa" nullable="0" physicalName="valor_recompensa" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o valor da recompensa.</remarks>
     </column>
     <column id="COL18" populated="true" UUID="9052997e-234d-456e-a20b-02b093374ed8" autoIncrement="false" autoIncrementSequenceName="recompensas_cpf_aluno_seq" defaultValue="" name="cpf_aluno" nullable="0" physicalName="cpf_aluno" precision="11" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>cpf do aluno</remarks>
+     <remarks>FK armazena o CPF do aluno.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB143" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -89,13 +89,13 @@
    <remarks>Informações gerais dos professores</remarks>
    <folder id="FOLTAB211" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL22" populated="true" UUID="b75d6063-2f94-4a45-bef8-e68a2c87a1d8" autoIncrement="false" autoIncrementSequenceName="professores_cpf_professor_seq" defaultValue="" name="cpf_professor" nullable="0" physicalName="cpf_professor" precision="11" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>PK armazena o CPF do professor.</remarks>
     </column>
     <column id="COL23" populated="true" UUID="3af37128-4c67-44af-87a6-5a7d40729dc9" autoIncrement="false" autoIncrementSequenceName="professores_email_professor_seq" defaultValue="" name="email_professor" nullable="0" physicalName="email_professor" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o e-mail do professor.</remarks>
     </column>
     <column id="COL24" populated="true" UUID="446f269f-ea33-4e9a-a1eb-1e0170bf1358" autoIncrement="false" autoIncrementSequenceName="professores_nome_professor_seq" defaultValue="" name="nome_professor" nullable="0" physicalName="nome_professor" precision="100" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o nome do professor.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB213" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -112,28 +112,28 @@
    <remarks>informações gerais das aulas</remarks>
    <folder id="FOLTAB271" populated="true" name="Columns" physicalName="Columns" type="1">
     <column id="COL28" populated="true" UUID="2fa44467-4b93-4883-aa95-ae19298dbfde" autoIncrement="false" autoIncrementSequenceName="aulas_aula_id_seq" defaultValue="" name="aula_id" nullable="0" physicalName="aula_id" precision="3" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>PK armazena o ID da aula.</remarks>
     </column>
     <column id="COL29" populated="true" UUID="9d37a200-672a-410a-a403-c2ab2409d016" autoIncrement="false" autoIncrementSequenceName="aulas_curso_id_seq" defaultValue="" name="curso_id" nullable="0" physicalName="curso_id" precision="3" primaryKeySeq="1" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>PFK armazena o ID do curso.</remarks>
     </column>
     <column id="COL30" populated="true" UUID="fd24ecf0-6b57-4920-ad6a-009d7b7d0f97" autoIncrement="false" autoIncrementSequenceName="aulas_cpf_professor_seq" defaultValue="" name="cpf_professor" nullable="0" physicalName="cpf_professor" precision="11" primaryKeySeq="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>PFK armazena o CPF do professor.</remarks>
     </column>
     <column id="COL31" populated="true" UUID="d861a82a-6842-427e-a062-c924a5b912ac" autoIncrement="false" autoIncrementSequenceName="aulas_data_seq" defaultValue="" name="data" nullable="0" physicalName="data" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
-     <remarks></remarks>
+     <remarks>Coluna armazena a data como dia, mês e ano da aula.</remarks>
     </column>
     <column id="COL32" populated="true" UUID="5cc8cd86-cba2-4605-b7c8-782005515cb6" autoIncrement="false" autoIncrementSequenceName="aulas_duracao_seq" defaultValue="" name="duracao" nullable="0" physicalName="duracao" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
-     <remarks></remarks>
+     <remarks>Coluna armazena a duração da aula.</remarks>
     </column>
     <column id="COL33" populated="true" UUID="abb2bae5-f6d0-4c7b-b78e-d5c91628ebdb" autoIncrement="false" autoIncrementSequenceName="aulas_pontos_seq" defaultValue="" name="pontos" nullable="0" physicalName="pontos" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena a pontuação da aula.</remarks>
     </column>
     <column id="COL34" populated="true" UUID="30bcb9f3-cf25-468b-8ffd-31662a36921a" autoIncrement="false" autoIncrementSequenceName="aulas_tema_seq" defaultValue="" name="tema" nullable="0" physicalName="tema" precision="256" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
+     <remarks>Coluna armazena o tema do conteúdo da aula.</remarks>
     </column>
-    <column id="COL35" populated="true" UUID="c61fc72c-ae9d-46a5-8afa-7eb37d8212e1" autoIncrement="false" autoIncrementSequenceName="Alunos_cpf_aluno_seq" defaultValue="" name="cpf_aluno" nullable="0" physicalName="cpf_aluno" precision="11" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks>cpf do aluno</remarks>
+    <column id="COL35" populated="true" UUID="c61fc72c-ae9d-46a5-8afa-7eb37d8212e1" autoIncrement="false" autoIncrementSequenceName="Alunos_cpf_aluno_seq_1" defaultValue="" name="cpf_aluno" nullable="0" physicalName="cpf_aluno" precision="11" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks>FK armazena o CPF do aluno.</remarks>
     </column>
     </folder>
     <folder id="FOLTAB273" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
@@ -149,16 +149,16 @@
    </folder>
   </table>
   <relationships>
-   <relationship id="REL40" populated="true" UUID="e0146b94-5305-4637-95f0-6755f89d8f63" deferrability="7" deleteRule="3" fk-table-ref="TAB14" fkCardinality="7" identifying="false" name="Alunos_recompensas_fk" physicalName="Alunos_recompensas_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL40" populated="true" UUID="e0146b94-5305-4637-95f0-6755f89d8f63" deferrability="7" deleteRule="3" fk-table-ref="TAB14" fkCardinality="7" identifying="false" name="Alunos_recompensas_fk" physicalName="alunos_recompensas_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP41" populated="true" UUID="05816106-3636-4cc7-8c3c-ccd116d4876f" fk-column-ref="COL18" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL42" populated="true" UUID="2732aa14-b8de-4deb-aab7-9166ea1367ad" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="Alunos_Cursos_fk" physicalName="Alunos_Cursos_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL42" populated="true" UUID="2732aa14-b8de-4deb-aab7-9166ea1367ad" deferrability="7" deleteRule="3" fk-table-ref="TAB8" fkCardinality="7" identifying="false" name="Alunos_Cursos_fk" physicalName="alunos_cursos_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP43" populated="true" UUID="b20e787f-439b-41a9-a779-266352d5e342" fk-column-ref="COL11" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL44" populated="true" UUID="efd0db18-63db-4d81-a275-e78abee0de58" deferrability="7" deleteRule="3" fk-table-ref="TAB27" fkCardinality="7" identifying="false" name="Alunos_aulas_fk" physicalName="Alunos_aulas_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+   <relationship id="REL44" populated="true" UUID="efd0db18-63db-4d81-a275-e78abee0de58" deferrability="7" deleteRule="3" fk-table-ref="TAB27" fkCardinality="7" identifying="false" name="Alunos_aulas_fk" physicalName="alunos_aulas_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP45" populated="true" UUID="548cbe81-3ae1-45e6-90d3-62ef8a505bc0" fk-column-ref="COL35" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
    </relationship>
-   <relationship id="REL46" populated="true" UUID="ddb1175e-7a9c-4075-8554-b90698cae46a" deferrability="7" deleteRule="3" fk-table-ref="TAB27" fkCardinality="7" identifying="true" name="Cursos_aulas_fk" physicalName="Cursos_aulas_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
+   <relationship id="REL46" populated="true" UUID="ddb1175e-7a9c-4075-8554-b90698cae46a" deferrability="7" deleteRule="3" fk-table-ref="TAB27" fkCardinality="7" identifying="true" name="Cursos_aulas_fk" physicalName="cursos_aulas_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP47" populated="true" UUID="4675f7e9-0062-491b-89ca-97c27038e496" fk-column-ref="COL29" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
    </relationship>
    <relationship id="REL48" populated="true" UUID="011e5670-bf5a-4668-a54a-7b1c053c6fa1" deferrability="7" deleteRule="3" fk-table-ref="TAB27" fkCardinality="7" identifying="true" name="professores_aulas_fk" physicalName="professores_aulas_fk" pk-table-ref="TAB21" pkCardinality="2" updateRule="3" >
@@ -166,15 +166,15 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
-  <table-pane table-ref="TAB1" x="94" y="137" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB8" x="746" y="49" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB14" x="20" y="510" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB21" x="778" y="517" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB27" x="642" y="241" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB1" x="76" y="137" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB8" x="728" y="49" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB14" x="64" y="447" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB21" x="760" y="517" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB27" x="624" y="241" bgColor="0xdfedce" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-link relationship-ref="REL40" pkConnection="0.5" fkConnection="0.4956268221574344" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="132"/>
   <table-link relationship-ref="REL42" pkConnection="0.3120567375886525" fkConnection="0.7575757575757576" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="33"/>
   <table-link relationship-ref="REL46" pkConnection="0.4217252396166134" fkConnection="0.6282894736842105" rLineColor="0x2e3436" pkLabelText="" fkLabelText="" orientation="132"/>

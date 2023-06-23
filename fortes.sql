@@ -1,143 +1,121 @@
--- Remoção do usuário, role, schema e database caso existam.
 
-drop database                                 if exists unifortes;
-drop schema                                   if exists fortes cascade;
-drop role                                     if exists grupo;
-
--- Criação do usuário.
-
-
-CREATE USER  grupo
-     with
-     LOGIN
-     SUPERUSER
-     INHERIT
-     CREATEDB
-     CREATEROLE
-     REPLICATION
-     PASSWORD '123456';
- 
--- Utilizar meu usuário  
-    
- SET ROLE grupo;
-
-    
--- Criação do database. 
-
-CREATE DATABASE unifortes     with
-    OWNER  =             grupo
-    ENCODING =          'UTF8'
-    LC_COLLATE =        'pt_BR.UTF-8'
-    LC_CTYPE =          'pt_BR.UTF-8'
-    ALLOW_CONNECTIONS =  'TRUE'
-    TEMPLATE = 'template0';
-
-   
-COMMENT ON DATABASE unifortes                        IS 'Banco de dados UniFortes com o usuário Grupo.';
-GRANT ALL ON DATABASE unifortes                      TO  grupo;
-
--- Conexão BD
-
-\setenv PGPASSWORD 123456
-\c unifortes grupo;
-
--- Criação do schema e setagem.
-
-CREATE SCHEMA fortes
-AUTHORIZATION grupo;
-ALTER SCHEMA  fortes  OWNER TO grupo;
-ALTER USER                   grupo
-SET SEARCH_PATH TO fortes, "$user", public;
-
-CREATE TABLE fortes.professores (
-                cpf_professor VARCHAR(11) NOT NULL,
-                email_professor VARCHAR(100) NOT NULL,
-                usuario_professor VARCHAR(100) NOT NULL,
-                nome_professor VARCHAR(100) NOT NULL,
+CREATE TABLE professores (
+                cpf_professor                                VARCHAR(11)    NOT NULL    CONSTRAINT check_cpf_professor UNIQUE,
+                email_professor                              VARCHAR(100)   NOT NULL,
+                nome_professor                               VARCHAR(100)   NOT NULL,
+                
                 CONSTRAINT professores_cpf PRIMARY KEY (cpf_professor)
 );
-COMMENT ON TABLE fortes.professores IS 'Informações gerais dos professores';
+
+COMMENT ON TABLE professores                                  IS 'Informações gerais dos professores';
+COMMENT ON COLUMN professores.cpf_professor                   IS 'PK armazena o CPF do professor.';
+COMMENT ON COLUMN professores.email_professor                 IS 'Coluna armazena o e-mail do professor.';
+COMMENT ON COLUMN professores.nome_professor                  IS 'Coluna armazena o nome do professor.';
 
 
-CREATE TABLE fortes.Alunos (
-                cpf_aluno VARCHAR(11) NOT NULL,
-                email_aluno VARCHAR(100) NOT NULL,
-                usuario_aluno VARCHAR(100) NOT NULL,
-                nome_aluno VARCHAR(100) NOT NULL,
-                pontos_total NUMERIC(10),
+CREATE TABLE Alunos (
+                cpf_aluno                                   VARCHAR(11)   NOT NULL     CONSTRAINT check_cpf_aluno UNIQUE,
+                email_aluno                                 VARCHAR(100)  NOT NULL,
+                nome_aluno                                  VARCHAR(100)  NOT NULL,
+                pontos_total                                NUMERIC(10)                CONSTRAINT check_pontos CHECK (pontos_total >= 0),
+                
                 CONSTRAINT aluno_id PRIMARY KEY (cpf_aluno)
 );
-COMMENT ON TABLE fortes.Alunos IS 'Informaçoões gerais dos alunos';
-COMMENT ON COLUMN fortes.Alunos.cpf_aluno IS 'cpf do aluno';
+
+COMMENT ON TABLE Alunos                                      IS 'Informaçoões gerais dos alunos';
+COMMENT ON COLUMN Alunos.cpf_aluno                           IS 'PK armazena o CPF do aluno.';
+COMMENT ON COLUMN Alunos.email_aluno                         IS 'Coluna armazena o e-mail do aluno.';
+COMMENT ON COLUMN Alunos.nome_aluno                          IS 'Coluna armazena o nome do aluno como no RG.';
+COMMENT ON COLUMN Alunos.pontos_total                        IS 'Coluna armazena a pontuação do aluno.';
 
 
-CREATE TABLE fortes.Cursos (
-                curso_id VARCHAR(3) NOT NULL,
-                nome_curso VARCHAR(256) NOT NULL,
-                cpf_aluno VARCHAR(11) NOT NULL,
+CREATE TABLE Cursos (
+                curso_id                                    VARCHAR(3)   NOT NULL     CONSTRAINT check_curso_id UNIQUE,
+                nome_curso                                  VARCHAR(256) NOT NULL,
+                cpf_aluno                                   VARCHAR(11)  NOT NULL,
+                
                 CONSTRAINT curso_id PRIMARY KEY (curso_id)
 );
-COMMENT ON TABLE fortes.Cursos IS 'informações gerais dos cursos';
-COMMENT ON COLUMN fortes.Cursos.cpf_aluno IS 'cpf do aluno';
+
+COMMENT ON TABLE Cursos                                   IS 'informações gerais dos cursos';
+COMMENT ON COLUMN Cursos.curso_id                         IS 'PK armazena o ID do curso.';
+COMMENT ON COLUMN Cursos.nome_curso                       IS 'Colua armazena o nome do curso.';
+COMMENT ON COLUMN Cursos.cpf_aluno                        IS 'FK armazena o cpf do aluno.
+';
 
 
-CREATE TABLE fortes.aulas (
-                aula_id VARCHAR(3) NOT NULL,
-                curso_id VARCHAR(3) NOT NULL,
-                cpf_professor VARCHAR(11) NOT NULL,
-                data DATE NOT NULL,
-                duracao TIME NOT NULL,
-                pontos NUMERIC(10) NOT NULL,
-                tema VARCHAR(256) NOT NULL,
-                cpf_aluno VARCHAR(11) NOT NULL,
+CREATE TABLE aulas (
+                aula_id                                    VARCHAR(3)       NOT NULL      CONSTRAINT check_aula_id UNIQUE,
+                curso_id                                   VARCHAR(3)       NOT NULL      CONSTRAINT check_curso_id UNIQUE,
+                cpf_professor                              VARCHAR(11)      NOT NULL      CONSTRAINT check_cpf_professor_2 UNIQUE,
+                data                                       DATE             NOT NULL,
+                duracao                                    TIME             NOT NULL,
+                pontos                                     NUMERIC(10)      NOT NULL,
+                tema                                       VARCHAR(256)     NOT NULL,
+                cpf_aluno                                  VARCHAR(11)      NOT NULL      CONSTRAINT check_cpf_aluno_2 UNIQUE,
+                
                 CONSTRAINT aula_id PRIMARY KEY (aula_id, curso_id, cpf_professor)
 );
-COMMENT ON TABLE fortes.aulas IS 'informações gerais das aulas';
-COMMENT ON COLUMN fortes.aulas.cpf_aluno IS 'cpf do aluno';
+COMMENT ON TABLE aulas                                  IS 'informações gerais das aulas';
+COMMENT ON COLUMN aulas.aula_id                         IS 'PK armazena o ID da aula.';
+COMMENT ON COLUMN aulas.curso_id                        IS 'PFK armazena o ID do curso.';
+COMMENT ON COLUMN aulas.cpf_professor                   IS 'PFK armazena o CPF do professor.';
+COMMENT ON COLUMN aulas.data                            IS 'Coluna armazena a data como dia, mês e ano da aula.';
+COMMENT ON COLUMN aulas.duracao                         IS 'Coluna armazena a duração da aula.';
+COMMENT ON COLUMN aulas.pontos                          IS 'Coluna armazena a pontuação da aula.';
+COMMENT ON COLUMN aulas.tema                            IS 'Coluna armazena o tema do conteúdo da aula.';
+COMMENT ON COLUMN aulas.cpf_aluno                       IS 'FK armazena o CPF do aluno.';
 
 
-CREATE TABLE fortes.recompensas (
-                recompensa_id VARCHAR(3) NOT NULL,
-                nome_recompensa VARCHAR(256) NOT NULL,
-                valor_recompensa NUMERIC(10) NOT NULL,
-                cpf_aluno VARCHAR(11) NOT NULL,
+CREATE TABLE recompensas (
+                recompensa_id                          VARCHAR(3)       NOT NULL       CONSTRAINT check_recompensa_id UNIQUE,
+                nome_recompensa                        VARCHAR(256)     NOT NULL,
+                valor_recompensa                       NUMERIC(10)      NOT NULL,
+                cpf_aluno                              VARCHAR(11)      NOT NULL,
+                
                 CONSTRAINT recompensa_id PRIMARY KEY (recompensa_id)
 );
-COMMENT ON TABLE fortes.recompensas IS 'informaçções gearias das recompensas';
-COMMENT ON COLUMN fortes.recompensas.cpf_aluno IS 'cpf do aluno';
+
+COMMENT ON TABLE recompensas                          IS 'informaçções gearias das recompensas';
+COMMENT ON COLUMN recompensas.recompensa_id           IS 'PK armazena o ID da recompensa.';
+COMMENT ON COLUMN recompensas.nome_recompensa         IS 'Coluna armazena o nome da recompensa.';
+COMMENT ON COLUMN recompensas.valor_recompensa        IS 'Coluna armazena o valor da recompensa.';
+COMMENT ON COLUMN recompensas.cpf_aluno               IS 'FK armazena o CPF do aluno.';
 
 
-ALTER TABLE fortes.aulas ADD CONSTRAINT professores_aulas_fk
+
+
+ALTER TABLE aulas ADD CONSTRAINT professores_aulas_fk
 FOREIGN KEY (cpf_professor)
-REFERENCES fortes.professores (cpf_professor)
+REFERENCES professores (cpf_professor)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE fortes.recompensas ADD CONSTRAINT alunos_recompensas_fk
+ALTER TABLE recompensas ADD CONSTRAINT alunos_recompensas_fk
 FOREIGN KEY (cpf_aluno)
-REFERENCES fortes.Alunos (cpf_aluno)
+REFERENCES Alunos (cpf_aluno)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE fortes.Cursos ADD CONSTRAINT alunos_cursos_fk
+ALTER TABLE Cursos ADD CONSTRAINT alunos_cursos_fk
 FOREIGN KEY (cpf_aluno)
-REFERENCES fortes.Alunos (cpf_aluno)
+REFERENCES Alunos (cpf_aluno)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE fortes.aulas ADD CONSTRAINT alunos_aulas_fk
+ALTER TABLE aulas ADD CONSTRAINT alunos_aulas_fk
 FOREIGN KEY (cpf_aluno)
-REFERENCES fortes.Alunos (cpf_aluno)
+REFERENCES Alunos (cpf_aluno)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
 
-ALTER TABLE fortes.aulas ADD CONSTRAINT cursos_aulas_fk
+ALTER TABLE aulas ADD CONSTRAINT cursos_aulas_fk
 FOREIGN KEY (curso_id)
-REFERENCES fortes.Cursos (curso_id)
+REFERENCES Cursos (curso_id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION
 NOT DEFERRABLE;
